@@ -62,3 +62,6 @@ All active tasks must implement or validate the Contractor HVAC field-service ap
 
 ## Task comments and handoffs
 Use {"action":"comment","text":"..."} to record meaningful progress, changed files, actual test evidence, blockers, unfinished work and the exact next action. Before checkpointing, give a specific handoff. Read the prior comments supplied with your task before acting. File changes, test outcomes, pauses and completion reports also generate task notes automatically.
+
+## Verified manager repair
+The manager restored the established application and verified all 25 existing Maven tests pass. Do not restore broken checkpoint code. Equipment is an embeddable declared inside Job.java, not a standalone entity; Job.date is LocalDate. New stock must use a distinct entity such as StockItem. Installed client equipment is different from office/truck stock. Existing code uses public fields, not guessed getters. Make one small change and verify compilation before extending it.

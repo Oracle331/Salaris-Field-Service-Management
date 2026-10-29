@@ -13,10 +13,10 @@ class Job {
   public Instant createdAt, scheduledStart, scheduledEnd, completedAt;
   @Column(nullable=false,columnDefinition="boolean default false") public boolean createdAtEstimated;
   public String title, trade, status, priority, clientName, clientEmail, phone, address, worker, clientAccount;
-  public Instant date;
+  public LocalDate date;
   public String timeWindow;
   @Column(length=4000) public String summary, accessNotes;
-  @ElementCollection(fetch=FetchType.EAGER) @OrderColumn public List<Equipment> equipment = new ArrayList<Equipment>();
+  @ElementCollection(fetch=FetchType.EAGER) @OrderColumn public List<Equipment> equipment = new ArrayList<>();
   @ElementCollection(fetch=FetchType.EAGER) @OrderColumn public List<WorkNote> history = new ArrayList<>();
   @ElementCollection(fetch=FetchType.EAGER) @OrderColumn public List<TaskItem> tasks = new ArrayList<>();
   public Job() {}
@@ -46,60 +46,3 @@ class TaskItem {
   TaskItem(String label) {this.label=label;}
 }
 interface JobRepository extends JpaRepository<Job,Long> {}
-
-@Embeddable
-class InventoryItem {
-  public Long equipmentId;
-  public String name, brand, model, serialNumber, location, filterSize, fittingSize, type;
-  public Integer quantity;
-  public InventoryItem() {}
-  InventoryItem(Long equipmentId, String name, String brand, String model, String serialNumber, String location, String filterSize, String fittingSize, String type, Integer quantity) {
-    this.equipmentId = equipmentId;
-    this.name = name;
-    this.brand = brand;
-    this.model = model;
-    this.serialNumber = serialNumber;
-    this.location = location;
-    this.filterSize = filterSize;
-    this.fittingSize = fittingSize;
-    this.type = type;
-    this.quantity = quantity;
-  }
-  public boolean isReusable() {
-    return Objects.equals(this.type, "REUSABLE");
-  }
-  public boolean isConsumable() {
-    return Objects.equals(this.type, "CONSUMABLE");
-  }
-}
-
-@Embeddable
-class InventoryView {
-  public List<InventoryItem> items;
-  public InventoryView() {}
-  InventoryView(List<InventoryItem> items) {
-    this.items = items;
-  }
-}
-
-@Embeddable
-class JobInventory {
-  public List<InventoryItem> truckInventory;
-  public List<InventoryItem> officeInventory;
-  public JobInventory() {}
-  JobInventory(List<InventoryItem> truckInventory, List<InventoryItem> officeInventory) {
-    this.truckInventory = truckInventory;
-    this.officeInventory = officeInventory;
-  }
-}
-
-@Embeddable
-class JobPrepResult {
-  public List<String> missingItems;
-  public List<String> shortages;
-  public JobPrepResult() {}
-  JobPrepResult(List<String> missingItems, List<String> shortages) {
-    this.missingItems = missingItems;
-    this.shortages = shortages;
-  }
-}

@@ -12,8 +12,8 @@ class DemoData {
   CommandLineRunner seed(JobRepository repo) { return args -> {
     if(repo.count()!=0) return;
     Job hvac=job("Seasonal HVAC maintenance","HVAC","IN_PROGRESS","NORMAL","Morgan residence","Alex Morgan","alex@example.com","(555) 010-0142","128 Maple Avenue, Albany, NY 12208","08:30 – 10:00","Annual heating maintenance. Client reports a rattling sound when the system starts.","Use side entrance. Air handler is in the basement. Friendly dog in the fenced yard.");
-    hvac.equipment.add(new Equipment("Main furnace","Carrier","59TP6B060V17","DEMO-48291","Basement utility room","16 x 25 x 1 in","3/4 in gas connection", "REUSABLE"));
-    hvac.equipment.add(new Equipment("Outdoor condenser","Carrier","24SCA530W003","DEMO-10284","East side of house","Not applicable","3/8 in liquid · 3/4 in suction", "REUSABLE"));
+    hvac.equipment.add(new Equipment("Main furnace","Carrier","59TP6B060V17","DEMO-48291","Basement utility room","16 × 25 × 1 in","3/4 in gas connection"));
+    hvac.equipment.add(new Equipment("Outdoor condenser","Carrier","24SCA530W003","DEMO-10284","East side of house","Not applicable","3/8 in liquid · 3/4 in suction"));
     hvac.history.add(new WorkNote("Office / Dispatch","Previous visit: replaced filter and cleaned flame sensor. Client requested a call before arrival."));
     for(String t:List.of("Confirm equipment and filter size","Inspect and clean flame sensor","Investigate startup rattle","Record work and confirm with client")) hvac.tasks.add(new TaskItem(t));
     repo.save(hvac);
@@ -25,8 +25,8 @@ class DemoData {
     appliance.clientAccount="rivera@salaris.demo";
     appliance.equipment.add(new Equipment("Dishwasher","Bosch","SHPM65Z55N","DEMO-93015","Kitchen island","Model-specific removable filter","7/8 in drain hose"));
     appliance.tasks.add(new TaskItem("Inspect drain filter and hose"));appliance.tasks.add(new TaskItem("Run and verify drain cycle"));repo.save(appliance);
-  }; }; }
-  private Job job(String title, String trade, String status, String priority, String site, String client, String email, String phone, String address, String time, String summary, String access) {
-    Job j = new Job(title, trade, status, priority, client, email, phone, address, time, summary, access)
+  }; }
+  private Job job(String title,String trade,String status,String priority,String site,String client,String email,String phone,String address,String time,String summary,String access) {
+    Job j=new Job();j.title=title;j.trade=trade;j.status=status;j.priority=priority;j.clientName=client;j.clientEmail=email;j.phone=phone;j.address=address;j.worker="worker@salaris.demo";j.clientAccount="client@salaris.demo";j.date=LocalDate.now();j.timeWindow=time;j.summary=summary;j.accessNotes=access;return j;
   }
 }
