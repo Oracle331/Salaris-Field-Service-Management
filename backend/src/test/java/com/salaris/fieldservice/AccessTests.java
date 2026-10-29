@@ -28,6 +28,8 @@ import static org.springframework.security.test.web.servlet.request.SecurityMock
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;
 import static org.hamcrest.Matchers.*;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest(properties={"app.demo-password=local-test-password-long-enough","spring.datasource.url=jdbc:h2:mem:access-tests;DB_CLOSE_DELAY=-1","spring.jpa.hibernate.ddl-auto=create-drop","spring.jpa.show-sql=true"})
 @AutoConfigureMockMvc
 class AccessTests {
