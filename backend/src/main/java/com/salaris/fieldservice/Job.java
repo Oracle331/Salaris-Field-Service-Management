@@ -23,6 +23,70 @@ class Job {
   @ElementCollection(fetch=FetchType.EAGER) @OrderColumn public List<WorkNote> history = new ArrayList<>();
   @ElementCollection(fetch=FetchType.EAGER) @OrderColumn public List<TaskItem> tasks = new ArrayList<>();
   public Job() {}
+
+  public String getFilterSize() {
+    return filterSize;
+  }
+
+  public void setFilterSize(String filterSize) {
+    this.filterSize = filterSize;
+  }
+
+  public Integer getFilterQuantity() {
+    return filterQuantity;
+  }
+
+  public void setFilterQuantity(Integer filterQuantity) {
+    this.filterQuantity = filterQuantity;
+  }
+
+  public String getTimeWindow() {
+    return timeWindow;
+  }
+
+  public void setTimeWindow(String timeWindow) {
+    this.timeWindow = timeWindow;
+  }
+
+  public String getSummary() {
+    return summary;
+  }
+
+  public void setSummary(String summary) {
+    this.summary = summary;
+  }
+
+  public String getAccessNotes() {
+    return accessNotes;
+  }
+
+  public void setAccessNotes(String accessNotes) {
+    this.accessNotes = accessNotes;
+  }
+
+  public List<Equipment> getEquipment() {
+    return equipment;
+  }
+
+  public void setEquipment(List<Equipment> equipment) {
+    this.equipment = equipment;
+  }
+
+  public List<WorkNote> getHistory() {
+    return history;
+  }
+
+  public void setHistory(List<WorkNote> history) {
+    this.history = history;
+  }
+
+  public List<TaskItem> getTasks() {
+    return tasks;
+  }
+
+  public void setTasks(List<TaskItem> tasks) {
+    this.tasks = tasks;
+  }
 }
 @Embeddable
 class Equipment {
