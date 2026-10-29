@@ -35,6 +35,7 @@ spring:
       mail.smtp.starttls.enable: ${MAIL_STARTTLS:false}
       mail.smtp.connectiontimeout: 5000
       mail.smtp.timeout: 5000
+      mail.smtp.ssl.enable: ${MAIL_SSL:false}
 app:
   time-zone: ${APP_TIME_ZONE:America/New_York}
   demo-enabled: ${DEMO_ENABLED:true}
