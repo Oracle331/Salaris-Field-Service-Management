@@ -1,69 +1,54 @@
 package com.salaris.fieldservice;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import java.time.LocalDate;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Version;
 import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Version;
-import java.util.Objects;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Version;
-import java.util.Objects;
-import org.springframework.data.jpa.repository.JpaRepository;
-import jakarta.persistence.Version;
-import java.util.*;
 
 @Entity
-@Table(name = "stock_item")
 class StockItem {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-  @Version
-  private Long version;
-  private String name;
-  private String brand;
-  private String model;
-  private String serialNumber;
-  private String location;
-  private String filterSize;
-  private String fittingSize;
-  private Long quantity;
-  private String type; // 'consumable' or 'tool'
-  private String stockLocation; // 'office' or 'truck'
-  private Boolean isKnownSize;
-  private Boolean isKnownQuantity;
-  public StockItem() {} // Default constructor
-  public StockItem(String name, String brand, String model, String serial, String location, String filter, String fitting, Long quantity, String type, String stockLocation, Boolean isKnownSize, Boolean isKnownQuantity) {
+  @Id @GeneratedValue(strategy=GenerationType.IDENTITY) public Long id;
+  @Version public Long version;
+  public Long stockLocationId;
+  public String name;
+  public String kind; // "consumable" or "reusable"
+  public String filterSize;
+  public Integer quantity;
+  public LocalDate lastUpdated;
+  public StockItem() {}
+  public StockItem(Long stockLocationId, String name, String kind, String filterSize, Integer quantity) {
+    this.stockLocationId = stockLocationId;
     this.name = name;
-    this.brand = brand;
-    this.model = model;
-    this.serialNumber = serial;
-    this.location = location;
-    this.filterSize = filter;
-    this.fittingSize = fitting;
+    this.kind = kind;
+    this.filterSize = filterSize;
     this.quantity = quantity;
-    this.type = type;
-    this.stockLocation = stockLocation;
-    this.isKnownSize = isKnownSize;
-    this.isKnownQuantity = isKnownQuantity;
+    this.lastUpdated = LocalDate.now();
+  }
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    StockItem that = (StockItem) o;
+    return Objects.equals(id, that.id) &&
+        Objects.equals(stockLocationId, that.stockLocationId) &&
+        Objects.equals(name, that.name) &&
+        Objects.equals(kind, that.kind) &&
+        Objects.equals(filterSize, that.filterSize) &&
+        Objects.equals(quantity, that.quantity);
+  }
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, stockLocationId, name, kind, filterSize, quantity);
+  }
+  @Override
+  public String toString() {
+    return "StockItem{" +
+        "id=" + id +
+        ", stockLocationId=" + stockLocationId +
+        ", name='" + name + '"' +
+        ", kind='" + kind + '"' +
+        ", filterSize='" + filterSize + '"' +
+        ", quantity=" + quantity +
+        ", lastUpdated=" + lastUpdated +
+        '}';
   }
 }
-
-interface StockItemRepository extends JpaRepository<StockItem, Long> {}
