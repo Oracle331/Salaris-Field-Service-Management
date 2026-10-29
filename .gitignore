@@ -1,0 +1,6 @@
+backend/target/
+backend/data/
+.env
+*.log
+.local/
+backend/socket_*
