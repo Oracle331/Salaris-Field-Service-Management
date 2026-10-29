@@ -6,20 +6,27 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
-import java.util.Date;
 import java.time.LocalDate;
-import org.springframework.data.jpa.repository.JpaRepository;
-import jakarta.persistence.Version;
-import java.util.*;
-
-package com.salaris.fieldservice;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.Column;
+import jakarta.persistence.Version;
+import java.util.Objects;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Version;
+import java.util.Objects;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Version;
+import java.util.Objects;
+import org.springframework.data.jpa.repository.JpaRepository;
+import jakarta.persistence.Version;
 import java.util.*;
 
 @Entity
@@ -58,7 +65,5 @@ class StockItem {
     this.isKnownQuantity = isKnownQuantity;
   }
 }
-    this.name=name;this.brand=brand;this.model=model;this.serialNumber=serial;this.location=location;this.filterSize=filter;this.fittingSize=fitting;this.quantity=quantity;this.type=type;this.stockLocation=stockLocation;this.isKnownSize=isKnownSize;this.isKnownQuantity=isKnownQuantity;
-  }
-}
+
 interface StockItemRepository extends JpaRepository<StockItem, Long> {}
