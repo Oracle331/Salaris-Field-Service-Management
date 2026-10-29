@@ -59,3 +59,6 @@ Orbit may rewrite task descriptions to remove recovery boilerplate, semantically
 
 ## Enforced field-service scope and editing schedule
 All active tasks must implement or validate the Contractor HVAC field-service application in this directory. The root and Maven wrapper are known. Do not create filesystem scanners, path-existence helpers, Gradle/CMake discovery tasks, assistant UI features or generic build-output parsing projects. Diagnostic commands are steps within a real field-service repair, not separate software deliverables. Use independent workstreams. Add prerequisites only when the task consumes that prerequisite deliverable; do not chain unrelated backend and UI tasks. Workers edit serially to prevent overlapping changes. Successful write passes receive Git snapshots; a commit does not imply tests passed. Original app and database remain separate.
+
+## Task comments and handoffs
+Use {"action":"comment","text":"..."} to record meaningful progress, changed files, actual test evidence, blockers, unfinished work and the exact next action. Before checkpointing, give a specific handoff. Read the prior comments supplied with your task before acting. File changes, test outcomes, pauses and completion reports also generate task notes automatically.
