@@ -13,7 +13,7 @@ class Job {
   public Instant createdAt, scheduledStart, scheduledEnd, completedAt;
   @Column(nullable=false,columnDefinition="boolean default false") public boolean createdAtEstimated;
   public String title, trade, status, priority, clientName, clientEmail, phone, address, worker, clientAccount;
-  public LocalDate date;
+  public Long date;
   public String timeWindow;
   @Column(length=4000) public String summary, accessNotes;
   @ElementCollection(fetch=FetchType.EAGER) @OrderColumn public List<Equipment> equipment = new ArrayList<>();
