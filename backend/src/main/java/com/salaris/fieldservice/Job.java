@@ -15,6 +15,8 @@ class Job {
   public String title, trade, status, priority, clientName, clientEmail, phone, address, worker, clientAccount;
   @Column(nullable=false) public LocalDate date
   public List<StockItem> stockItems = new ArrayList<>();
+  public String filterSize;
+  public Integer filterQuantity;
   public String timeWindow;
   @Column(length=4000) public String summary, accessNotes;
   @ElementCollection(fetch=FetchType.EAGER) @OrderColumn public List<Equipment> equipment = new ArrayList<>();
