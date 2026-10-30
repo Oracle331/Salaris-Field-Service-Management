@@ -11,13 +11,13 @@ public class StockItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String location;
-    private String filterSize;
-    private String kind;
-    private int quantity;
-    private LocalDate lastUpdated;
-    private Long version;
+    public String name;
+    public String location;
+    public String filterSize;
+    public String kind;
+    public int quantity;
+    public LocalDate lastUpdated;
+    public Long version;
 
     // Getters and setters
     public Long getId() {
