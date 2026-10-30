@@ -18,14 +18,70 @@ public class StockItem {
     public int quantity;
     public LocalDate lastUpdated;
     public Long version;
+    public Long id;
 
-    public StockItem(String name, String location, String filterSize, String kind, int quantity, LocalDate lastUpdated, Long version) {
+    // Getters and setters
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getFilterSize() {
+        return filterSize;
+    }
+
+    public void setFilterSize(String filterSize) {
         this.filterSize = filterSize;
+    }
+
+    public String getKind() {
+        return kind;
+    }
+
+    public void setKind(String kind) {
         this.kind = kind;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public LocalDate getLastUpdated() {
+        return lastUpdated;
+    }
+
+    public void setLastUpdated(LocalDate lastUpdated) {
         this.lastUpdated = lastUpdated;
+    }
+
+    public Long getVersion() {
+        return version;
+    }
+
+    public void setVersion(Long version) {
         this.version = version;
     }
 
