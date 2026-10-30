@@ -29,6 +29,16 @@ public class StockItem {
         this.version = version;
     }
 
+    public StockItem(String name, String location, String filterSize, String kind, int quantity) {
+        this.name = name;
+        this.location = location;
+        this.filterSize = filterSize;
+        this.kind = kind;
+        this.quantity = quantity;
+        this.lastUpdated = LocalDate.now();
+        this.version = 1L;
+    }
+
     // Getters and setters
     public Long getId() {
         return id;
