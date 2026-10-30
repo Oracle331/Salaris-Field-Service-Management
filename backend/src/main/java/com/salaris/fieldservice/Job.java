@@ -13,7 +13,8 @@ class Job {
   public Instant createdAt, scheduledStart, scheduledEnd, completedAt;
   @Column(nullable=false,columnDefinition="boolean default false") public boolean createdAtEstimated;
   public String title, trade, status, priority, clientName, clientEmail, phone, address, worker, clientAccount;
-  @Column(nullable=false) public LocalDate date
+  @Column(nullable=false) public LocalDate date;
+  @Transient // Temporary preparation scaffold; stock persistence is a separate pending task.
   public List<StockItem> stockItems = new ArrayList<>();
   public String filterSize;
   public Integer filterQuantity;
