@@ -9,34 +9,63 @@ class StockLocation {
   @Id @GeneratedValue(strategy=GenerationType.IDENTITY) public Long id;
   @Version public Long version;
   public String name;
-  public String type; // "office" or "truck"
+  public String type; // 'office' or 'truck'
+  public String locationCode;
   public LocalDate lastUpdated;
+
   public StockLocation() {}
-  public StockLocation(String name, String type) {
+
+  public StockLocation(String name, String type, String locationCode) {
     this.name = name;
     this.type = type;
+    this.locationCode = locationCode;
     this.lastUpdated = LocalDate.now();
   }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    StockLocation that = (StockLocation) o;
-    return Objects.equals(id, that.id) &&
-        Objects.equals(name, that.name) &&
-        Objects.equals(type, that.type);
+    if (!(o instanceof StockLocation)) return false;
+    StockLocation stockLocation = (StockLocation) o;
+    return Objects.equals(name, stockLocation.name) &&
+        Objects.equals(type, stockLocation.type) &&
+        Objects.equals(locationCode, stockLocation.locationCode);
   }
+
   @Override
   public int hashCode() {
-    return Objects.hash(id, name, type);
+    return Objects.hash(name, type, locationCode);
   }
-  @Override
-  public String toString() {
-    return "StockLocation{" +
-        "id=" + id +
-        ", name='" + name + '"' +
-        ", type='" + type + '"' +
-        ", lastUpdated=" + lastUpdated +
-        '}';
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getLocationCode() {
+    return locationCode;
+  }
+
+  public void setLocationCode(String locationCode) {
+    this.locationCode = locationCode;
+  }
+
+  public LocalDate getLastUpdated() {
+    return lastUpdated;
+  }
+
+  public void setLastUpdated(LocalDate lastUpdated) {
+    this.lastUpdated = lastUpdated;
   }
 }
