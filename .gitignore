@@ -4,3 +4,10 @@ backend/data/
 *.log
 .local/
 backend/socket_*
+.env.*
+!.env.example
+SHARED_CONTEXT.md
+.agents/
+.codex/
+.vscode/
+.github/modernize/

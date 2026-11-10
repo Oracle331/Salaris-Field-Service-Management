@@ -1,5 +1,7 @@
 # HVAC Inventory and Job Preparation API Contract
 
+Draft contract for planned inventory endpoints.
+
 ## GET /api/inventory
 Returns a list of stock items with their locations, filter sizes, quantities, and availability status.
 

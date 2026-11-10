@@ -1,6 +1,6 @@
 # Invoicing and accounting integration proposal
 
-Prepared October 24, 2026. This is a recommendation; no accounting connection or invoice-sending functionality has been enabled.
+This proposal covers adding invoicing and accounting. The app currently has no accounting connection.
 
 ## Recommended starting point
 
